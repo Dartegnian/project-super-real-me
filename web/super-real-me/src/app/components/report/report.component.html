@@ -1,0 +1,22 @@
+<h3>Validation Report</h3>
+<table mat-table [dataSource]="data.errors" class="mat-elevation-z8">
+  <!-- Index Column -->
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let e; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <!-- Message Column -->
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef>Error Message</th>
+    <td mat-cell *matCellDef="let e">{{ e }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['index','message']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['index','message'];"></tr>
+</table>
+
+<!-- If no errors -->
+<div *ngIf="data.errors?.length === 0">
+  🎉 No errors found! Your AI agent approves. 
+</div>

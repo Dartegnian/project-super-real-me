@@ -1,0 +1,13 @@
+<div class="upload‑container">
+	<h2>Upload Excel for Validation</h2>
+	<input type="file" (change)="onFileSelected($event)" accept=".xlsx,.xls" />
+	<button mat-raised-button color="primary"
+			[disabled]="!selectedFile || loading"
+			(click)="submit()">
+	  {{ loading ? 'Validating…' : 'Validate' }}
+	</button>
+  </div>
+  
+  <!-- Display report if available -->
+  <app-report *ngIf="report" [data]="report"></app-report>
+  
